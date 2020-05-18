@@ -19,13 +19,13 @@ Route::get('/article/','ArticalController@index')
 ->name('article.index');
 Route::get('/article/create','ArticalController@create')
 ->name('article.create');
-Route::get('/article','ArticalController@store')
+Route::post('/article','ArticalController@store')
 ->name('article.store');
 Route::get('/article','ArticalController@show')
 ->name('article.show');
 Route::get('/article/{id}','ArticalController@edit')
 ->name('article.edit');
-Route::get('/article/{id}/edit','ArticalController@update')
+Route::put('/article/{id}/edit','ArticalController@update')
 ->name('article.update');
-Route::get('/article/{id}','ArticalController@destory')
+Route::delete('/article/{id}','ArticalController@destory')
 ->name('article.destroy');
