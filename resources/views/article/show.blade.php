@@ -1,4 +1,4 @@
 @extends('layout')
 @section('content')
-글보기
-@endsection
+<small class="small text-muted">{{ $article->updated_at }}</small>
+<div class="mt-3 pt-3 border-top">{{ $article->content }}</div>@endsection

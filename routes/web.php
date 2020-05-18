@@ -15,23 +15,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/article/index','ArticalController@index')
+Route::get('/article/index','ArticleController@index')
 ->name('article.index');
 
-Route::get('/article/create','ArticalController@create')
+Route::get('/article/create','ArticleController@create')
 ->name('article.create');
 
-Route::post('/article','ArticalController@store')
+Route::post('/article','ArticleController@store')
 ->name('article.store');
 
-Route::get('/article','ArticalController@show')
+Route::get('/article','ArticleController@show')
 ->name('article.show');
 
-Route::get('/article/{id}','ArticalController@edit')
+Route::get('/article/{id}','ArticleController@edit')
 ->name('article.edit');
 
-Route::put('/article/{id}/edit','ArticalController@update')
+Route::put('/article/{id}/edit','ArticleController@update')
 ->name('article.update');
 
-Route::delete('/article/{id}','ArticalController@destory')
+Route::delete('/article/{id}','ArticleController@destory')
 ->name('article.destroy');

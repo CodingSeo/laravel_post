@@ -15,6 +15,7 @@ class ArticleController extends Controller
     public function index()
     {
         //
+        return view('article.index');
     }
 
     /**
@@ -25,6 +26,7 @@ class ArticleController extends Controller
     public function create()
     {
         //
+        return view('article.create');
     }
 
     /**
@@ -35,7 +37,16 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request()->validate([
+            'title' => 'required',
+            'content' => 'required'
+        ]);
+        //make this as Eloquent ORM
+        $article = new Article();
+        $article->title = request('title');
+        $article->content= request('content');
+        $article->save();
+        return redirect()->route('article.index');
     }
 
     /**
@@ -46,7 +57,8 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        //
+        $article = Article::find($id);
+        return view('article.show', compact('article'));
     }
 
     /**
@@ -57,7 +69,7 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        //
+        return view('article.edit');
     }
 
     /**
@@ -69,7 +81,8 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        //
+        $article = Article::find($id);
+        return view('article.show', compact('article'));
     }
 
     /**
