@@ -15,9 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/article/index','ArticalController@index')->name('article.index');
+Route::get('/article/index','ArticalController@index')
+->name('article.index');
 
-Route::get('/article/create','ArticalController@create')->name('article.create');
+Route::get('/article/create','ArticalController@create')
+->name('article.create');
 
 Route::post('/article','ArticalController@store')
 ->name('article.store');
