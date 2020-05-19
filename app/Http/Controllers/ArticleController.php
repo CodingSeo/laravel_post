@@ -38,6 +38,7 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
+        //validate - checking input function
         request()->validate([
             'title' => 'required',
             'content' => 'required'
@@ -56,7 +57,7 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function show(Article $article)
+    public function show($id)
     {
         $article = Article::find($id);
         return view('article.show', compact('article'));
@@ -80,7 +81,7 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Article $article)
+    public function update($id)
     {
         $article = Article::find($id);
         return view('article.show', compact('article'));

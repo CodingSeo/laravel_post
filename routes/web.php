@@ -24,13 +24,13 @@ Route::get('/article/create','ArticleController@create')
 Route::post('/article','ArticleController@store')
 ->name('article.store');
 
-Route::get('/article','ArticleController@show')
+route::get('/article/{id}', 'ArticleController@show')
 ->name('article.show');
 
-Route::get('/article/{id}','ArticleController@edit')
+Route::get('/article/{id}/edit','ArticleController@edit')
 ->name('article.edit');
 
-Route::put('/article/{id}/edit','ArticleController@update')
+Route::put('/article/{id}','ArticleController@update')
 ->name('article.update');
 
 Route::delete('/article/{id}','ArticleController@destory')
