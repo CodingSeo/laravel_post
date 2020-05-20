@@ -18,7 +18,9 @@
     </div>
     <div class="form-group">
       <label for="content">내용</label>
-      <textarea class="form-control @error('content') is-invalid  @enderror" name="content" id="content" rows="3">{{ old('content') }}</textarea>
+      <textarea class="form-control
+      @error('content') is-invalid  @enderror"
+      name="content" id="content" rows="3">{{ old('content') }}</textarea>
       @error('content')
       <p class="invalid-feedback">내용을 입력하세요</p>
       @enderror
