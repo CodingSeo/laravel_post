@@ -14,7 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+//auth
 
+
+//article
 Route::get('/article/index','ArticleController@index')
 ->name('article.index');
 
