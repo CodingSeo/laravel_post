@@ -69,9 +69,10 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function edit(Article $article)
+    public function edit($id)
     {
-        return view('article.edit');
+        $article = Article::find($id);
+        return view('article.edit',compact('article'));
     }
 
     /**
@@ -83,8 +84,15 @@ class ArticleController extends Controller
      */
     public function update($id)
     {
+        request()->validate([
+            'title' => 'required',
+            'content' => 'required'
+        ]);
         $article = Article::find($id);
-        return view('article.show', compact('article'));
+        $article -> title = request('title');
+        $article -> content = request('content');
+        $article ->save();
+        return redirect()->route('article.show', $id);
     }
 
     /**
@@ -93,8 +101,9 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Article $article)
+    public function destroy($id)
     {
-        //
+        Article::find($id)->delete();
+        return redirect()->route('article.index');
     }
 }
