@@ -56,11 +56,7 @@ Route::post('auth/remind', [
 Route::get('auth/reset/{token}', [
     'as' => 'reset.create',
     'uses' => 'PasswordsController@getReset',
-<<<<<<< HEAD
-])->where('token', '[\pL-\pN]{64}');
-=======
 ]);
->>>>>>> a1e0a4b6df6b56cc9ead68f7319d32ba953b55ce
 Route::post('auth/reset', [
     'as' => 'reset.store',
     'uses' => 'PasswordsController@postReset',
