@@ -81,7 +81,7 @@ Route::post('/article',[
 
 Route::get('/article/{id}',[
     'as'=> 'article.show',
-    'show'=>'ArticleController@show'
+    'uses'=>'ArticleController@show'
 ]);
 
 route::get('article/{id}/edit',[

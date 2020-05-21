@@ -43,6 +43,16 @@ class ArticleController extends Controller
             'title' => 'required',
             'content' => 'required'
         ]);
+        //save file
+        if($request->hasFile('file')){
+            dd('test');
+            $files = $request->file('files');
+            foreach($files as $file){
+                $filename = str_random().filter_var($file->getClientOriginalName(),
+                FILTER_SANITIZE_URL);
+                $file->move(attachments_path(),$filename);
+            }
+        }
         //make this as Eloquent ORM
         $article = new Article();
         $article->title = request('title');
