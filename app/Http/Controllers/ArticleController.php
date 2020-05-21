@@ -45,7 +45,6 @@ class ArticleController extends Controller
         ]);
         //save file
         if($request->hasFile('file')){
-            dd('test');
             $files = $request->file('files');
             foreach($files as $file){
                 $filename = str_random().filter_var($file->getClientOriginalName(),
