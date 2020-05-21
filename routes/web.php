@@ -62,24 +62,39 @@ Route::post('auth/reset', [
     'uses' => 'PasswordsController@postReset',
 ]); 
 
-//article
-Route::get('/article/index','ArticleController@index')
-->name('article.index');
+//문서
+Route::get('/article/index',[
+    'as' =>'article.index',
+    'ArticleController@index'
+]);
 
-Route::get('/article/create','ArticleController@create')
-->name('article.create');
 
-Route::post('/article','ArticleController@store')
-->name('article.store');
+Route::get('/article/create',[
+    'as'=>'aricle.create',
+    'ArticleController@create'
+]);
 
-route::get('/article/{id}', 'ArticleController@show')
-->name('article.show');
+Route::post('/article',[
+    'as'=>'article.store',
+    'uses'=>'ArticleController@store'
+]);
 
-Route::get('/article/{id}/edit','ArticleController@edit')
-->name('article.edit');
+Route::get('/article/{id}',[
+    'as'=> 'article.show',
+    'show'=>'ArticleController@show'
+]);
 
-Route::put('/article/{id}','ArticleController@update')
-->name('article.update');
+route::get('article/{id}/edit',[
+    'as'=>'article.edit',
+    'uses'=>'ArticleController@edit'
+]);
 
-Route::delete('/article/{id}','ArticleController@destory')
-->name('article.destroy');
+route::put('/article/{id}',[
+    'as'=>'article.update',
+    'uses'=>'ArticleController@update'
+]);
+
+route::delete('/article/{id}',[
+    'as'=>'article.destroy',
+    'uses'=>'ArticleController@destroy'
+]);
