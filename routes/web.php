@@ -65,13 +65,13 @@ Route::post('auth/reset', [
 //문서
 Route::get('/article/index',[
     'as' =>'article.index',
-    'ArticleController@index'
+    'uses'=>'ArticleController@index'
 ]);
 
 
 Route::get('/article/create',[
     'as'=>'aricle.create',
-    'ArticleController@create'
+    'uses'=>'ArticleController@create'
 ]);
 
 Route::post('/article',[
