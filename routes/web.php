@@ -63,6 +63,7 @@ Route::post('auth/reset', [
 ]); 
 
 //문서
+// Route::resource('/article','ArticleController');
 Route::get('/article/index',[
     'as' =>'article.index',
     'uses'=>'ArticleController@index'
