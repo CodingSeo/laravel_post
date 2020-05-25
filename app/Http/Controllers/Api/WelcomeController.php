@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller as Controller;
 
 class WelcomeController extends Controller
 {
-
     public function index(){
         return response()->json([
             'name'=>config('app.name').' API',
@@ -15,11 +14,12 @@ class WelcomeController extends Controller
             'links' =>[
                 [
                     'rel' =>'self',
-                    // 'href'=> route(\Route::currentRouteAction())
+                    'href'=> \Route::currentRouteAction(),
+                    // 'href'=>'index'
                 ],
                 [
                     'rel'=>'api.articles',
-                    // 'href'=>route('api.articles.index')
+                    'href'=> 'test'
                 ]
             ]
         ],200, [], JSON_PRETTY_PRINT);
