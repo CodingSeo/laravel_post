@@ -12,10 +12,7 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::group([
-    'domain'=>config('project.api_domain'),
-    'namespace'=>'Api',
-    'as'=>'api.'],
+Route::group(['domain'=>config('project.api_domain'),'namespace'=>'Api','as'=>'api.'],
     function(){
         Route::get('/',[
             'as'=>'index',

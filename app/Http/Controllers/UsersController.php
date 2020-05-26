@@ -19,10 +19,10 @@ class UsersController extends Controller
         $user = \App\USER::create([
             'name' ->$request->input('name'),
             'email' ->$request->input('email'),
-            'password'->$requets->input('password')
+            'password'->$request->input('password')
         ]);
 
-    } 
+    }
     public function confirm(){
 
     }
