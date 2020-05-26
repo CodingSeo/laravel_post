@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller as Controller;
+use App\Http\Controllers\Controller;
 
 class WelcomeController extends Controller
 {
@@ -14,12 +14,11 @@ class WelcomeController extends Controller
             'links' =>[
                 [
                     'rel' =>'self',
-                    'href'=> \Route::currentRouteAction(),
-                    // 'href'=>'index'
+                    'href'=> route('api.index'),
                 ],
                 [
                     'rel'=>'api.articles',
-                    'href'=> 'test'
+                    'href'=>route('api.articles.index'),
                 ]
             ]
         ],200, [], JSON_PRETTY_PRINT);
