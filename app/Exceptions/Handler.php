@@ -46,6 +46,16 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        //전역 예외처리하는 구간
+        if(app()->environment('rpduction')){
+            // 처리 로직
+            // if($exception instanceof \Illuminate\Database\Eloquent\ModelNotFoundException
+            // or $exception instanceof \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+            // ){
+            // }
+            // return json
+            return 'error';
+        }
         return parent::render($request, $exception);
     }
 }

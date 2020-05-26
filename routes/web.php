@@ -60,7 +60,7 @@ Route::get('auth/reset/{token}', [
 Route::post('auth/reset', [
     'as' => 'reset.store',
     'uses' => 'PasswordsController@postReset',
-]); 
+]);
 
 //문서
 // Route::resource('/article','ArticleController');
@@ -99,3 +99,12 @@ route::delete('/article/{id}',[
     'as'=>'article.destroy',
     'uses'=>'ArticleController@destroy'
 ]);
+
+
+
+
+//markup-test
+Route::get('docs/{file?}',function ($file=null){
+    $text = (new App\Documentation)->get($file);
+    return app(Parsedown::class)->text($text);
+});
