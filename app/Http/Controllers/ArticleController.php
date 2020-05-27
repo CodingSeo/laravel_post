@@ -15,7 +15,7 @@ class ArticleController extends Controller
     public function index()
     {
         //
-        $articles = Article::orderBy('created_at', 'desc')->paginate(15);
+        $articles = Article::orderBy('created_at', 'desc')->paginate(3);
         return view('article.index', compact('articles'));
     }
 
@@ -80,6 +80,7 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
+        $this->authorize('update',$article);
         $article = Article::find($id);
         return view('article.edit',compact('article'));
     }
