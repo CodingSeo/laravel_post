@@ -18,4 +18,9 @@
   </div>
 </div>
 @endforeach
+@if($articles->count())
+<div class="text-center">
+    {!! $articles->render() !!}
+<div>
+@endif
 @endsection

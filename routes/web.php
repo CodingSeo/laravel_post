@@ -18,43 +18,7 @@ Route::get('/', function () {
 /* 사용자 등록 */
 
 //문서
-// Route::resource('/article','ArticleController');
-
-Route::get('/article/index',[
-    'as' =>'article.index',
-    'uses'=>'ArticleController@index'
-]);
-
-Route::get('/article/create',[
-    'as'=>'aricle.create',
-    'uses'=>'ArticleController@create'
-]);
-
-Route::post('/article',[
-    'as'=>'article.store',
-    'uses'=>'ArticleController@store'
-]);
-
-Route::get('/article/{id}',[
-    'as'=> 'article.show',
-    'uses'=>'ArticleController@show'
-]);
-
-route::get('article/{id}/edit',[
-    'as'=>'article.edit',
-    'uses'=>'ArticleController@edit'
-]);
-
-route::put('/article/{id}',[
-    'as'=>'article.update',
-    'uses'=>'ArticleController@update'
-]);
-
-route::delete('/article/{id}',[
-    'as'=>'article.destroy',
-    'uses'=>'ArticleController@destroy'
-]);
-
+Route::resource('/article','ArticleController');
 
 
 

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Article;
+use App\Article as Article;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -15,7 +15,9 @@ class ArticleController extends Controller
     public function index()
     {
         //
-        $articles = Article::orderBy('created_at', 'desc')->paginate(3);
+        // $articles = Article::orderBy('created_at', 'desc')->paginate(3);
+        $articles = Article::latest()->paginate(3);
+        // return response()->json($articles);
         return view('article.index', compact('articles'));
     }
 
@@ -24,6 +26,7 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    //
     public function create()
     {
         //
@@ -66,9 +69,8 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Article $article)
     {
-        $article = Article::find($id);
         return view('article.show', compact('article'));
     }
 

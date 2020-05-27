@@ -24,8 +24,9 @@ class RouteServiceProvider extends ServiceProvider
     public function boot()
     {
         //
-
         parent::boot();
+        //라우트 모델 바인딩
+        Route::model('article',\App\Article::class);
     }
 
     /**
